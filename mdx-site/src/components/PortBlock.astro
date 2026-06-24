@@ -1,0 +1,21 @@
+---
+// Computes the deterministic port block from a project name, using the SAME
+// rule as dev-setup's CLAUDE.md: base = 9000 + CRC32(name) % 900.
+// node:zlib.crc32 (Node 22.2+) guarantees the result matches the convention.
+import zlib from 'node:zlib';
+
+const { name = 'mdx-docs' } = Astro.props;
+const base = 9000 + (zlib.crc32(name) % 900);
+const services = ['api', 'frontend', 'storybook', 'observability'];
+---
+
+<table>
+  <thead>
+    <tr><th>Service</th><th>Port</th></tr>
+  </thead>
+  <tbody>
+    {services.map((svc, index) => (
+      <tr><td><code>{name}-{svc}</code></td><td>{base + index}</td></tr>
+    ))}
+  </tbody>
+</table>

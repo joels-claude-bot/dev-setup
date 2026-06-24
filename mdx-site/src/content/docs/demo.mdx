@@ -1,0 +1,27 @@
+---
+title: MD vs MDX demo
+description: The three things MDX adds over plain Markdown, rendered live.
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import PortBlock from '../../components/PortBlock.astro';
+
+Plain Markdown gives you prose, tables, and code blocks — and mkdocs-material already renders all of that. **MDX adds three things on top, shown live below.**
+
+<Aside type="tip">This very callout is a component (`<Aside>`), imported at the top of the file. In plain `.md` you'd need a mkdocs extension; in MDX it's just a component.</Aside>
+
+## 1. JavaScript expressions inline
+
+Two plus two is **{2 + 2}**, evaluated at render time. This page slug is rendered by the MDX pipeline, not a Markdown parser.
+
+## 2. Imported components with real logic
+
+The `<PortBlock>` component below computes this repo's deterministic port block — `base = 9000 + CRC32(name) % 900` — at render time, the same rule from `CLAUDE.md`:
+
+<PortBlock name="mdx-docs" />
+
+## 3. Reuse across pages
+
+The identical component, a different project name — no copy-paste, no stale table:
+
+<PortBlock name="company-flipping" />

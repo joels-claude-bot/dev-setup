@@ -47,3 +47,6 @@ site
 
 # port registry — machine-local
 .registered-ports.toml
+
+# agent-native visual-plan scratch (local, contains bridge tokens)
+plans/
