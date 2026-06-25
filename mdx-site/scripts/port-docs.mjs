@@ -103,8 +103,10 @@ function conciseTitle(rel) {
 }
 
 // mkdocs links to `foo.md` must become Starlight routes `foo/` (with trailing slash).
+// External links (e.g. a GitHub blob ending in .md) are left untouched.
 function rewriteLinks(text) {
 	return text.replace(/\]\(([^)\s#]+?)\.md(#[^)]*)?\)/g, (whole, p, frag) => {
+		if (/^(https?:)?\/\//.test(p)) return whole;
 		let route = p.replace(/(^|\/)index$/, '$1');
 		if (route === '') route = './';
 		if (!route.endsWith('/')) route += '/';

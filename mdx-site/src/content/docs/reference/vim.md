@@ -551,7 +551,7 @@ require('lspconfig')[server_name].setup(server)
 
 would be difficult to type all of them?
 
-BUT all the configurations can be found [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs/#lua_ls), just have to dig through the docs normally
+BUT all the configurations can be found [here](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#lua_ls), just have to dig through the docs normally
 
 Now i couldn't get luals to give type hints to work, and `lazydev` docs are about as useful as a sack of potatoes, so I'm digging through myself. (with some help from claude)
 

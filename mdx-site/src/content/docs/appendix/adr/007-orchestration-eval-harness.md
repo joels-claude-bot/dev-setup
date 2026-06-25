@@ -219,3 +219,6 @@ Skip LangSmith/Braintrust (SaaS lock-in for a personal setup) and the public ben
 - ✗ Seeding a genuinely-hard-but-objectively-gradable probe is real work — the three defects must be tuned so it needs ~3 rounds without being unsolvable.
 - ✗ Cross-tool fairness is fiddly: the JSON grader has to normalise transcripts from very different tools (native Inspect vs n8n node logs vs a shell wrapper).
 - ✗ Multi-vendor critic (D2) depends on a gateway decision still open in ADR-001.
+
+
+pls pls pls

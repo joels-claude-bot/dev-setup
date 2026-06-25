@@ -42,8 +42,9 @@ let text = out.join('\n');
 // 3. fix relative image paths for Astro (resolve relative to this file)
 text = text.replace(/\]\(assets\//g, '](./assets/').replace(/\]\(cpu-over-time\.svg/g, '](./cpu-over-time.svg');
 
-// 3b. rewrite mkdocs `foo.md` links to Starlight routes `foo/`
+// 3b. rewrite mkdocs `foo.md` links to Starlight routes `foo/` (leave external links alone)
 text = text.replace(/\]\(([^)\s#]+?)\.md(#[^)]*)?\)/g, (whole, p, frag) => {
+	if (/^(https?:)?\/\//.test(p)) return whole;
 	let route = p.replace(/(^|\/)index$/, '$1');
 	if (route === '') route = './';
 	if (!route.endsWith('/')) route += '/';

@@ -18,6 +18,15 @@
 	font-size: 0.85em;
 }
 
+/* Tone down the active sidebar item: Starlight fills it with the bright accent
+   colour by default — use a subtle grey background + accent text instead. */
+a[aria-current='page'],
+a[aria-current='page']:hover,
+a[aria-current='page']:focus {
+	color: var(--sl-color-text-accent);
+	background-color: var(--sl-color-gray-6);
+}
+
 /* Collapsible blocks ported from mkdocs ??? admonitions (<details>). */
 .sl-markdown-content details {
 	border: 1px solid var(--sl-color-gray-5);
